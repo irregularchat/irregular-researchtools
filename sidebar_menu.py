@@ -27,4 +27,5 @@ def sidebar_menu():
     st.sidebar.markdown("""
     - [Forms for Processing](https://Irregularpedia.org/index.php/forms)
     - [R Studio Guide](https://Irregularpedia.org/index.php/rstudio)
-    """) 
+    """)
+
