@@ -1,5 +1,6 @@
 import streamlit as st
 import hashlib
+import uuid
 
 def login():
     st.title("Login")
@@ -23,3 +24,14 @@ def logout():
     st.session_state["logged_in"] = False
     st.session_state["account_number"] = None
     st.experimental_rerun()
+
+def create_account():
+    st.title("Create Account")
+
+    if st.button("Generate Account Number"):
+        account_number = generate_account_number()
+        st.write(f"Your account number (hash) is: {account_number}")
+        st.write("Please save this account number securely. You will need it to log in.")
+
+def generate_account_number():
+    return hashlib.sha256(uuid.uuid4().bytes).hexdigest()
