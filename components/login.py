@@ -15,6 +15,11 @@ def login():
         else:
             st.error("Invalid account number. Please try again.")
 
+    st.markdown("---")
+    st.subheader("Don't have an account?")
+    if st.button("Create Account"):
+        create_account()
+
 def validate_account_number(account_number):
     # Placeholder validation logic
     # In a real application, you would check the account number against a database or other data source
