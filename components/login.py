@@ -33,11 +33,12 @@ def logout():
 def create_account():
     st.title("Create Account")
 
-    if st.button("Generate Account Number"):
-        account_number = generate_account_number()
-        st.code(f"Your account number (hash) is: {account_number}")
-        st.write("Please save this account number securely. You will need it to log in.")
-        st.button("Copy to Clipboard", on_click=copy_to_clipboard, args=(account_number,))
+    # Automatically generate account number when the button is clicked
+    account_number = generate_account_number()
+    st.markdown("Your account number (hash) is:")
+    st.markdown(f"```\n{account_number}\n```")
+    st.write("Please save this account number securely. You will need it to log in.")
+    st.button("Copy to Clipboard", on_click=copy_to_clipboard, args=(account_number,))
 
 def generate_account_number():
     return hashlib.sha256(uuid.uuid4().bytes).hexdigest()
